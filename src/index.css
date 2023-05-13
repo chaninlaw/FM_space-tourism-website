@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body,
+  h5 {
+    @apply font-barlow;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-belle;
+  }
+
+  /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+  @media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .cta-btn {
+    @apply relative grid aspect-square cursor-pointer place-items-center rounded-full bg-white p-8
+    after:absolute after:-z-10 after:aspect-square after:h-full after:w-full after:rounded-full after:bg-[#979797] after:opacity-0 after:transition-all after:duration-500 after:ease-in-out
+    hover:after:scale-150 hover:after:opacity-10 focus:after:scale-150 focus:after:opacity-10;
+  }
+}
