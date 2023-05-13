@@ -1,23 +1,30 @@
 import { Routes, Route } from 'react-router-dom';
-import Tabs from './components/Tabs';
+import Navbar from './components/Navbar';
 import { Home, Destination, Crew, Technology } from './pages';
 import Logo from './assets/shared/logo.svg';
 import { path } from './data';
+import { destinations, crew, technology } from './data/data.json';
 
 const App = () => {
   return (
     <>
       <header>
         <nav>
-          <Tabs Logo={Logo} path={path} />
+          <Navbar Logo={Logo} path={path} />
         </nav>
       </header>
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/destination" element={<Destination />} />
-          <Route path="/crew" element={<Crew />} />
-          <Route path="/technology" element={<Technology />} />
+          <Route
+            path="/destination"
+            element={<Destination data={destinations} />}
+          />
+          <Route path="/crew" element={<Crew data={crew} />} />
+          <Route
+            path="/technology"
+            element={<Technology data={technology} />}
+          />
         </Routes>
       </main>
     </>

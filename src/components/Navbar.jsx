@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Hamburger from '../assets/shared/icon-hamburger.svg';
 import Close from '../assets/shared/icon-close.svg';
 
-const Tabs = ({ Logo, path }) => {
+const Navbar = ({ Logo, path }) => {
   const [toggle, setToggle] = useState(false);
   const handleToggle = () => {
     setToggle(!toggle);
@@ -64,4 +64,4 @@ const Tabs = ({ Logo, path }) => {
   );
 };
 
-export default Tabs;
+export default Navbar;
