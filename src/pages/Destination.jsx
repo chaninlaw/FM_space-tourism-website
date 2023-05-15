@@ -1,18 +1,31 @@
 import { useState } from 'react';
+import Moon from '../assets/destination/image-moon.png';
+import Mars from '../assets/destination/image-mars.png';
+import Europa from '../assets/destination/image-europa.png';
+import Titan from '../assets/destination/image-titan.png';
 
 const Destination = ({ data }) => {
   const [display, setDisplay] = useState(data[0]);
+  const [isActive, setIsActive] = useState(true);
+
+  const listObj = {
+    moon: 0,
+    mars: 1,
+    europa: 2,
+    titan: 3,
+  };
+
+  const picObj = {
+    Moon: Moon,
+    Mars: Mars,
+    Europa: Europa,
+    Titan: Titan,
+  };
 
   const handleDisplay = (e) => {
     e.preventDefault();
-    let target = e.target.innerText.toLowerCase();
-    const dataObj = {
-      moon: 0,
-      mars: 1,
-      europa: 2,
-      titan: 3,
-    };
-    let index = dataObj[target];
+    const target = e.target.innerText.toLowerCase();
+    const index = listObj[target];
     setDisplay(data[index]);
   };
 
@@ -28,32 +41,22 @@ const Destination = ({ data }) => {
           <span className="font-bold brightness-[25%]">01</span> Pick your
           destination
         </h5>
-        <img
-          className="my-4"
-          src={
-            import.meta.env.DEV
-              ? display.images.png
-              : require(display.images.png).default
-          }
-          alt={display.name}
-        />
+        <img className="my-4" src={picObj[display.name]} alt={display.name} />
 
         <div className="mt-4 box-content flex items-center justify-center gap-2 uppercase tracking-[2.7px]">
-          <p
-            onClick={(e) => handleDisplay(e)}
-            className="cursor-pointer border-b-[3px] border-b-white p-1"
-          >
-            Moon
-          </p>
-          <p onClick={(e) => handleDisplay(e)} className="cursor-pointer p-1">
-            Mars
-          </p>
-          <p onClick={(e) => handleDisplay(e)} className="cursor-pointer p-1">
-            Europa
-          </p>
-          <p onClick={(e) => handleDisplay(e)} className="cursor-pointer p-1">
-            Titan
-          </p>
+          {Object.keys(listObj).map((key) => {
+            return (
+              <p
+                key={key}
+                onClick={(e) => handleDisplay(e)}
+                className={`${
+                  isActive && 'border-b-[3px] border-b-white'
+                } cursor-pointer p-1`}
+              >
+                {key.toUpperCase()}
+              </p>
+            );
+          })}
         </div>
         <h3 className="my-4 text-[3.5rem] uppercase">{display.name}</h3>
         <p className="text-center">{display.description}</p>
