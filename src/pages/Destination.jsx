@@ -6,7 +6,7 @@ import Titan from '../assets/destination/image-titan.png';
 
 const Destination = ({ data }) => {
   const [display, setDisplay] = useState(data[0]);
-  const [isActive, setIsActive] = useState(true);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const listObj = {
     moon: 0,
@@ -22,12 +22,34 @@ const Destination = ({ data }) => {
     Titan: Titan,
   };
 
-  const handleDisplay = (e) => {
+  const handleDisplay = (e, i) => {
     e.preventDefault();
     const target = e.target.innerText.toLowerCase();
     const index = listObj[target];
     setDisplay(data[index]);
+    setActiveIndex((curr) => {
+      if (curr === i) {
+        return 0;
+      } else {
+        return i;
+      }
+    });
   };
+
+  const renderedCarousel = Object.keys(listObj).map((key, index) => {
+    const isActive = index === activeIndex;
+    return (
+      <p
+        key={key}
+        onClick={(e) => handleDisplay(e, index)}
+        className={`${
+          isActive && 'border-b-[3px] border-b-white'
+        } cursor-pointer p-1`}
+      >
+        {key.toUpperCase()}
+      </p>
+    );
+  });
 
   return (
     <section
@@ -44,19 +66,7 @@ const Destination = ({ data }) => {
         <img className="my-4" src={picObj[display.name]} alt={display.name} />
 
         <div className="mt-4 box-content flex items-center justify-center gap-2 uppercase tracking-[2.7px]">
-          {Object.keys(listObj).map((key) => {
-            return (
-              <p
-                key={key}
-                onClick={(e) => handleDisplay(e)}
-                className={`${
-                  isActive && 'border-b-[3px] border-b-white'
-                } cursor-pointer p-1`}
-              >
-                {key.toUpperCase()}
-              </p>
-            );
-          })}
+          {renderedCarousel}
         </div>
         <h3 className="my-4 text-[3.5rem] uppercase">{display.name}</h3>
         <p className="text-center">{display.description}</p>
