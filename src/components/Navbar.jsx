@@ -32,7 +32,9 @@ const Navbar = ({ Logo, path }) => {
   return (
     <>
       <div className="container mx-auto flex w-10/12 items-center justify-between py-6 text-white">
+        {/* Logo */}
         <img src={Logo} width="48" alt="Logo" />
+        {/* Hamburger Icon */}
         <img
           className="cursor-pointer md:hidden"
           src={Hamburger}
@@ -41,8 +43,11 @@ const Navbar = ({ Logo, path }) => {
           alt="hamburger-menu-icon"
           onClick={handleToggle}
         />
+        {/* Desktop Menu */}
         <ul className="hidden md:flex md:gap-8">{renderedListsDesktop}</ul>
       </div>
+
+      {/* Mobile Menu */}
       <div
         className={
           toggle

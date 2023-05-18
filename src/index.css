@@ -1,3 +1,25 @@
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-weight: 400;
+  src: local('Barlow Condensed'),
+    url('./assets/fonts/Barlow_Condensed/BarlowCondensed-Regular.ttf');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-weight: 700;
+  src: local('Barlow Condensed Bold'),
+    url('./assets/fonts/Barlow_Condensed/BarlowCondensed-Bold.ttf');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bellefair';
+  src: local('Bellefair'), url('./assets/fonts/Bellefair/Bellefair-Regular.ttf');
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

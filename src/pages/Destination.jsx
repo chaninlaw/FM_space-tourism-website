@@ -27,13 +27,7 @@ const Destination = ({ data }) => {
     const target = e.target.innerText.toLowerCase();
     const index = listObj[target];
     setDisplay(data[index]);
-    setActiveIndex((curr) => {
-      if (curr === i) {
-        return 0;
-      } else {
-        return i;
-      }
-    });
+    setActiveIndex(i);
   };
 
   const renderedCarousel = Object.keys(listObj).map((key, index) => {
@@ -53,8 +47,9 @@ const Destination = ({ data }) => {
 
   return (
     <section
-      className={`absolute top-0 -z-10 w-screen 
-    bg-[url('/src/assets/destination/background-destination-mobile.jpg')] bg-cover bg-top 
+      className={`min-w-screen absolute inset-x-0 top-0 -z-10 min-h-screen 
+      bg-[url('/src/assets/destination/background-destination-mobile.jpg')]
+    bg-cover bg-top bg-no-repeat 
     md:bg-[url('/src/assets/destination/background-destination-tablet.jpg')] 
     lg:bg-[url('/src/assets/destination/background-destination-desktop.jpg')]`}
     >
@@ -65,7 +60,7 @@ const Destination = ({ data }) => {
         </h5>
         <img className="my-4" src={picObj[display.name]} alt={display.name} />
 
-        <div className="mt-4 box-content flex items-center justify-center gap-2 uppercase tracking-[2.7px]">
+        <div className="mt-4 box-content flex items-center justify-center space-x-4 uppercase tracking-[2.7px]">
           {renderedCarousel}
         </div>
         <h3 className="my-4 text-[3.5rem] uppercase">{display.name}</h3>
