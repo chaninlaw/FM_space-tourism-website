@@ -1,7 +1,9 @@
-import React from 'react';
-
 const Technology = () => {
-  return <div>Technology</div>;
+  return (
+    <>
+      <div className="mb-4">Tech</div>
+    </>
+  );
 };
 
 export default Technology;

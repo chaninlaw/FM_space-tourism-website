@@ -31,7 +31,7 @@ const Navbar = ({ Logo, path }) => {
 
   return (
     <>
-      <div className="container mx-auto flex w-10/12 items-center justify-between py-6 text-white">
+      <div className="container absolute inset-x-0 mx-auto flex w-10/12 items-center justify-between bg-transparent py-6 text-white">
         {/* Logo */}
         <img src={Logo} width="48" alt="Logo" />
         {/* Hamburger Icon */}
@@ -51,8 +51,8 @@ const Navbar = ({ Logo, path }) => {
       <div
         className={
           toggle
-            ? `absolute right-0 top-0 flex h-screen bg-dark bg-opacity-10 px-14 backdrop-blur-xl md:hidden`
-            : `hidden md:hidden`
+            ? `absolute right-0 top-0 flex h-screen bg-dark bg-transparent bg-opacity-10 px-14 backdrop-blur-xl md:hidden`
+            : `hidden bg-transparent md:hidden`
         }
       >
         <img

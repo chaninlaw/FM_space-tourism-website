@@ -1,26 +1,29 @@
 import { useState } from 'react';
+import Section from '../components/Background';
+import Container from '../components/Container';
+import Heading from '../components/Heading';
 import Moon from '../assets/destination/image-moon.png';
 import Mars from '../assets/destination/image-mars.png';
 import Europa from '../assets/destination/image-europa.png';
 import Titan from '../assets/destination/image-titan.png';
 
+const listObj = {
+  moon: 0,
+  mars: 1,
+  europa: 2,
+  titan: 3,
+};
+
+const picObj = {
+  Moon: Moon,
+  Mars: Mars,
+  Europa: Europa,
+  Titan: Titan,
+};
+
 const Destination = ({ data }) => {
   const [display, setDisplay] = useState(data[0]);
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const listObj = {
-    moon: 0,
-    mars: 1,
-    europa: 2,
-    titan: 3,
-  };
-
-  const picObj = {
-    Moon: Moon,
-    Mars: Mars,
-    Europa: Europa,
-    Titan: Titan,
-  };
 
   const handleDisplay = (e, i) => {
     e.preventDefault();
@@ -30,7 +33,7 @@ const Destination = ({ data }) => {
     setActiveIndex(i);
   };
 
-  const renderedCarousel = Object.keys(listObj).map((key, index) => {
+  const renderedCarouselActiveTabs = Object.keys(listObj).map((key, index) => {
     const isActive = index === activeIndex;
     return (
       <p
@@ -46,22 +49,13 @@ const Destination = ({ data }) => {
   });
 
   return (
-    <section
-      className={`min-w-screen absolute inset-x-0 top-0 -z-10 min-h-screen 
-      bg-[url('/src/assets/destination/background-destination-mobile.jpg')]
-    bg-cover bg-top bg-no-repeat 
-    md:bg-[url('/src/assets/destination/background-destination-tablet.jpg')] 
-    lg:bg-[url('/src/assets/destination/background-destination-desktop.jpg')]`}
-    >
-      <div className="container mx-auto flex w-10/12 flex-col items-center justify-center pt-28 text-white">
-        <h5 className="uppercase tracking-[0.2969rem]">
-          <span className="font-bold brightness-[25%]">01</span> Pick your
-          destination
-        </h5>
-        <img className="my-4" src={picObj[display.name]} alt={display.name} />
+    <Section title="destination">
+      <Container>
+        <Heading number="01">Pick your destination</Heading>
+        <img className="my-8" src={picObj[display.name]} alt={display.name} />
 
         <div className="mt-4 box-content flex items-center justify-center space-x-4 uppercase tracking-[2.7px]">
-          {renderedCarousel}
+          {renderedCarouselActiveTabs}
         </div>
         <h3 className="my-4 text-[3.5rem] uppercase">{display.name}</h3>
         <p className="text-center">{display.description}</p>
@@ -78,8 +72,8 @@ const Destination = ({ data }) => {
             <p className="upercase font-belle text-[28px]">{display.travel}</p>
           </div>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 
