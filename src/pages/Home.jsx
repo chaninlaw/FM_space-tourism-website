@@ -18,9 +18,11 @@ const Home = () => {
             world experience!
           </p>
         </div>
-        <Button className="font-belle text-xl uppercase tracking-[0.0781rem] text-black">
-          Explore
-        </Button>
+        <div className="flex items-center justify-center">
+          <Button className="font-belle text-xl uppercase tracking-[0.0781rem] text-black">
+            Explore
+          </Button>
+        </div>
       </Container>
     </Section>
   );

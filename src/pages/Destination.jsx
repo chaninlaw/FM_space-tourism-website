@@ -58,9 +58,9 @@ const Destination = ({ data }) => {
           {renderedCarouselActiveTabs}
         </div>
         <h3 className="my-4 text-[3.5rem] uppercase">{display.name}</h3>
-        <p className="text-center">{display.description}</p>
+        <p className="tracking-[1px] text-accent">{display.description}</p>
         <hr className="my-8 w-full border border-[#383B4B]" />
-        <div className="mb-4 space-y-4 text-center uppercase">
+        <div className="mb-4 space-y-4 uppercase">
           <div>
             <p className="">AVG. Distance</p>
             <p className="font-belle text-[28px] uppercase">
