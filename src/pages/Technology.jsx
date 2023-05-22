@@ -2,6 +2,7 @@ import Background from '../components/Background';
 import Container from '../components/Container';
 import Heading from '../components/Heading';
 import Tabs from '../components/Tabs';
+import Carousel from '../components/Carousel';
 
 import SpaceCraft from '../assets/technology/image-launch-vehicle-landscape.jpg';
 import SpaceCapsule from '../assets/technology/image-space-capsule-landscape.jpg';
@@ -19,8 +20,10 @@ const Technology = ({ data }) => {
   const [activeIndex, setActive] = useState(0);
 
   const handleDisplay = (index) => {
-    setDisplay(data[index]);
-    setActive(index);
+    if (index >= 0 && index < 3) {
+      setDisplay(data[index]);
+      setActive(index);
+    }
   };
 
   return (
@@ -28,25 +31,23 @@ const Technology = ({ data }) => {
       <Container>
         <Heading number="03">Space Launch 101</Heading>
       </Container>
-      <div className="mt-8">
+      <Carousel onDisplay={handleDisplay} index={activeIndex}>
         <img
-          className="h-44 w-screen"
+          className="relative inset-0 h-44 w-screen"
           src={picObj[display.name]}
           alt="tech image"
         />
-      </div>
+      </Carousel>
       <Container className="!pt-0">
-        <div className="my-8">
-          <ul className="flex items-center justify-center space-x-4">
-            <Tabs
-              page="technology"
-              data={data}
-              handleDisplay={handleDisplay}
-              activeIndex={activeIndex}
-            />
-          </ul>
-        </div>
-        <div className="mb-4">
+        <ul className="flex items-center justify-center space-x-4">
+          <Tabs
+            page="technology"
+            data={data}
+            handleDisplay={handleDisplay}
+            activeIndex={activeIndex}
+          />
+        </ul>
+        <div className="mb-4 mt-8">
           <h4 className="font-barlow text-base uppercase text-accent">
             The Terminology...
           </h4>

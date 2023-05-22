@@ -3,6 +3,7 @@ import Section from '../components/Background';
 import Container from '../components/Container';
 import Heading from '../components/Heading';
 import Tabs from '../components/Tabs';
+import Carousel from '../components/Carousel';
 
 import Moon from '../assets/destination/image-moon.png';
 import Mars from '../assets/destination/image-mars.png';
@@ -34,7 +35,6 @@ const Destination = ({ data }) => {
           src={picObj[display.name]}
           alt={display.name}
         />
-
         <div className="mt-4 box-content flex items-center justify-center space-x-4 uppercase tracking-[2.7px]">
           <Tabs
             page="destinations"

@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Tabs = ({ data, activeIndex, handleDisplay, page }) => {
   if (page === 'destinations') {
     const renderTabs = Object.keys(data).map((key, index) => {
@@ -38,7 +36,6 @@ const Tabs = ({ data, activeIndex, handleDisplay, page }) => {
       return (
         <li key={index}>
           <button
-            id={index}
             className={`${
               isActive && `!bg-white text-black`
             } h-10 w-10 rounded-full border border-gray-700 bg-transparent font-belle`}
