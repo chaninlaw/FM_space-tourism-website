@@ -2,13 +2,14 @@ import { useState } from 'react';
 import Section from '../components/Background';
 import Container from '../components/Container';
 import Heading from '../components/Heading';
+import Tabs from '../components/Tabs';
 
 import DouglasHurley from '../assets/crew/image-douglas-hurley.png';
 import MarkShuttleworth from '../assets/crew/image-mark-shuttleworth.png';
 import VictorGlover from '../assets/crew/image-victor-glover.png';
 import AnoushehAnsari from '../assets/crew/image-anousheh-ansari.png';
 
-const personImg = {
+const picObj = {
   'Douglas Hurley': DouglasHurley,
   'Mark Shuttleworth': MarkShuttleworth,
   'Victor Glover': VictorGlover,
@@ -17,22 +18,12 @@ const personImg = {
 
 const Crew = ({ data }) => {
   const [display, setDisplay] = useState(data[0]);
+  const [activeIndex, setActive] = useState(0);
 
-  const handleClick = (e) => {
-    setDisplay(data[e.target.id]);
+  const handleDisplay = (index) => {
+    setDisplay(data[index]);
+    setActive(index);
   };
-
-  const renderData = data.map((_, index) => {
-    return (
-      <li key={index}>
-        <button
-          id={index}
-          className="h-2.5 w-2.5 rounded-full bg-gray-600"
-          onClick={handleClick}
-        />
-      </li>
-    );
-  });
 
   return (
     <Section title="crew">
@@ -41,7 +32,7 @@ const Crew = ({ data }) => {
         <div className="flex items-center justify-center">
           <img
             className="mt-8 h-56"
-            src={personImg[display.name]}
+            src={picObj[display.name]}
             alt="person image"
           />
         </div>
@@ -49,7 +40,12 @@ const Crew = ({ data }) => {
 
         <div className="my-8">
           <ul className="flex items-center justify-center space-x-4">
-            {renderData}
+            <Tabs
+              page="crew"
+              data={data}
+              handleDisplay={handleDisplay}
+              activeIndex={activeIndex}
+            />
           </ul>
         </div>
 
@@ -57,12 +53,11 @@ const Crew = ({ data }) => {
           {display.role}
         </h4>
 
-        <div className="space-y-4">
+        <div className="mb-20 space-y-4">
           <h3 className="font-Belle text-2xl uppercase">{display.name}</h3>
           <p className="text-base tracking-[1px] text-accent">{display.bio}</p>
         </div>
       </Container>
-      <div id="mask"></div>
     </Section>
   );
 };

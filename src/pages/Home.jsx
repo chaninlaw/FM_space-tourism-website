@@ -4,7 +4,7 @@ import Button from '../components/Button';
 
 const Home = () => {
   return (
-    <Section title="home">
+    <Section title="home" className="mask-image">
       <Container className="space-y-[7.5rem] text-center uppercase">
         <div>
           <p className="text-base tracking-[0.18rem] text-accent">
