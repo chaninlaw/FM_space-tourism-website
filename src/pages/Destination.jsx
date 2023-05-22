@@ -15,10 +15,10 @@ const listObj = {
 };
 
 const picObj = {
-  Moon: Moon,
-  Mars: Mars,
-  Europa: Europa,
-  Titan: Titan,
+  Moon,
+  Mars,
+  Europa,
+  Titan,
 };
 
 const Destination = ({ data }) => {
@@ -33,7 +33,7 @@ const Destination = ({ data }) => {
     setActiveIndex(i);
   };
 
-  const renderedCarouselActiveTabs = Object.keys(listObj).map((key, index) => {
+  const renderedCarouselActiveTabs = Object.keys(picObj).map((key, index) => {
     const isActive = index === activeIndex;
     return (
       <p
@@ -52,7 +52,11 @@ const Destination = ({ data }) => {
     <Section title="destination">
       <Container>
         <Heading number="01">Pick your destination</Heading>
-        <img className="my-8" src={picObj[display.name]} alt={display.name} />
+        <img
+          className="mx-auto my-8"
+          src={picObj[display.name]}
+          alt={display.name}
+        />
 
         <div className="mt-4 box-content flex items-center justify-center space-x-4 uppercase tracking-[2.7px]">
           {renderedCarouselActiveTabs}

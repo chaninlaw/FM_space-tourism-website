@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Carousel = ({ lists }) => {
   const renderedLists = lists.map((list) => {
     return (

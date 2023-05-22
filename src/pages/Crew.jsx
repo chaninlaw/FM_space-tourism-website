@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Section from '../components/Background';
 import Container from '../components/Container';
 import Heading from '../components/Heading';
+import Pagnation from './Pagnation';
 
 import DouglasHurley from '../assets/crew/image-douglas-hurley.png';
 import MarkShuttleworth from '../assets/crew/image-mark-shuttleworth.png';
@@ -18,29 +19,38 @@ const personImg = {
 const Crew = ({ data }) => {
   const [display, setDisplay] = useState(data[0]);
 
+  const handleClick = (e) => {
+    setDisplay(data[e.target.id]);
+  };
+
+  const renderData = data.map((_, index) => {
+    return (
+      <li key={index}>
+        <button
+          id={index}
+          className="h-2.5 w-2.5 rounded-full bg-gray-600"
+          onClick={handleClick}
+        />
+      </li>
+    );
+  });
+
   return (
     <Section title="crew">
       <Container>
         <Heading number="02">Meet the crew</Heading>
         <div className="flex items-center justify-center">
-          <img className="mt-8 h-56" src={personImg[0]} alt="person image" />
+          <img
+            className="mt-8 h-56"
+            src={display.images.png}
+            alt="person image"
+          />
         </div>
         <hr className="bordser w-full border-[#383B4B]" />
 
         <div className="my-8">
           <ul className="flex items-center justify-center space-x-4">
-            <li>
-              <button className="h-2.5 w-2.5 rounded-full bg-gray-600" />
-            </li>
-            <li>
-              <button className="h-2.5 w-2.5 rounded-full bg-gray-600" />
-            </li>
-            <li>
-              <button className="h-2.5 w-2.5 rounded-full bg-gray-600" />
-            </li>
-            <li>
-              <button className="h-2.5 w-2.5 rounded-full bg-gray-600" />
-            </li>
+            {renderData}
           </ul>
         </div>
 

@@ -1,6 +1,7 @@
 import Background from '../components/Background';
 import Container from '../components/Container';
 import Heading from '../components/Heading';
+import Pagnation from './Pagnation';
 
 import SpaceCraft from '../assets/technology/image-launch-vehicle-landscape.jpg';
 import SpaceCapsule from '../assets/technology/image-space-capsule-landscape.jpg';
@@ -26,17 +27,7 @@ const Technology = ({ data }) => {
       </div>
       <Container className="pt-0">
         <div className="my-8">
-          <ul className="flex items-center justify-center space-x-4">
-            <li>
-              <button className="h-2.5 w-2.5 rounded-full bg-gray-600" />
-            </li>
-            <li>
-              <button className="h-2.5 w-2.5 rounded-full bg-gray-600" />
-            </li>
-            <li>
-              <button className="h-2.5 w-2.5 rounded-full bg-gray-600" />
-            </li>
-          </ul>
+          <Pagnation time={4} />
         </div>
 
         <div className="mb-4">
