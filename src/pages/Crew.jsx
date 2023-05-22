@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Section from '../components/Background';
 import Container from '../components/Container';
 import Heading from '../components/Heading';
-import Pagnation from './Pagnation';
 
 import DouglasHurley from '../assets/crew/image-douglas-hurley.png';
 import MarkShuttleworth from '../assets/crew/image-mark-shuttleworth.png';
@@ -10,10 +9,10 @@ import VictorGlover from '../assets/crew/image-victor-glover.png';
 import AnoushehAnsari from '../assets/crew/image-anousheh-ansari.png';
 
 const personImg = {
-  0: DouglasHurley,
-  1: MarkShuttleworth,
-  2: VictorGlover,
-  3: AnoushehAnsari,
+  'Douglas Hurley': DouglasHurley,
+  'Mark Shuttleworth': MarkShuttleworth,
+  'Victor Glover': VictorGlover,
+  'Anousheh Ansari': AnoushehAnsari,
 };
 
 const Crew = ({ data }) => {
@@ -42,7 +41,7 @@ const Crew = ({ data }) => {
         <div className="flex items-center justify-center">
           <img
             className="mt-8 h-56"
-            src={display.images.png}
+            src={personImg[display.name]}
             alt="person image"
           />
         </div>
