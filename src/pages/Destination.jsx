@@ -3,7 +3,6 @@ import Section from '../components/Background';
 import Container from '../components/Container';
 import Heading from '../components/Heading';
 import Tabs from '../components/Tabs';
-import Carousel from '../components/Carousel';
 
 import Moon from '../assets/destination/image-moon.png';
 import Mars from '../assets/destination/image-mars.png';
@@ -28,10 +27,10 @@ const Destination = ({ data }) => {
 
   return (
     <Section title="destination">
-      <Container>
+      <Container className="pt-28 md:pt-52">
         <Heading number="01">Pick your destination</Heading>
         <img
-          className="mx-auto my-8"
+          className="mx-auto my-8 w-44 md:w-80"
           src={picObj[display.name]}
           alt={display.name}
         />

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import { Home, Destination, Crew, Technology } from './pages';
@@ -6,11 +7,23 @@ import { path } from './data';
 import { destinations, crew, technology } from './data/data.json';
 
 const App = () => {
+  const [activeTab, setActiveTab] = useState('Home');
+
+  const handleActiveTabs = (currPage) => {
+    console.log(currPage);
+    setActiveTab(currPage);
+  };
+
   return (
     <>
       <header>
         <nav>
-          <Navbar Logo={Logo} path={path} />
+          <Navbar
+            Logo={Logo}
+            path={path}
+            activeTab={activeTab}
+            onActive={handleActiveTabs}
+          />
         </nav>
       </header>
       <main>

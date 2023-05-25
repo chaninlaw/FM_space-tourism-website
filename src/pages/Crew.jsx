@@ -27,11 +27,11 @@ const Crew = ({ data }) => {
 
   return (
     <Section title="crew">
-      <Container>
+      <Container className="pt-28 md:pt-52">
         <Heading number="02">Meet the crew</Heading>
         <div className="flex items-center justify-center">
           <img
-            className="mt-8 h-56"
+            className="mt-8 w-80 md:w-[456px]"
             src={picObj[display.name]}
             alt="person image"
           />

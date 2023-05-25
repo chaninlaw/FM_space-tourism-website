@@ -28,12 +28,12 @@ const Technology = ({ data }) => {
 
   return (
     <Background title="technology">
-      <Container>
+      <Container className="pt-28 md:pt-52">
         <Heading number="03">Space Launch 101</Heading>
       </Container>
       <Carousel onDisplay={handleDisplay} index={activeIndex}>
         <img
-          className="relative inset-0 h-44 w-screen"
+          className="relative inset-0 h-44 w-screen md:h-80"
           src={picObj[display.name]}
           alt="tech image"
         />
