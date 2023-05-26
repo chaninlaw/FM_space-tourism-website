@@ -13,7 +13,7 @@ const Home = () => {
           <h1 className="text-[5rem] uppercase text-white sm:text-[9.375rem]">
             Space
           </h1>
-          <p className="text-base normal-case tracking-wider text-accent">
+          <p className="text-base normal-case leading-7 tracking-wider text-accent">
             Let’s face it; if you want to go to space, you might as well
             genuinely go to outer space and not hover kind of on the edge of it.
             Well sit back, and relax because we’ll give you a truly out of this

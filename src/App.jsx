@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import { Home, Destination, Crew, Technology } from './pages';
 import Logo from './assets/shared/logo.svg';
@@ -8,11 +8,17 @@ import { destinations, crew, technology } from './data/data.json';
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('Home');
+  const location = useLocation();
 
-  const handleActiveTabs = (currPage) => {
-    console.log(currPage);
-    setActiveTab(currPage);
-  };
+  useEffect(() => {
+    const page = location.pathname.slice(1);
+    const currPage = page.charAt(0).toUpperCase() + page.slice(1);
+    if (!currPage) {
+      setActiveTab('Home');
+    } else {
+      setActiveTab(currPage);
+    }
+  }, [location]);
 
   return (
     <>
@@ -22,7 +28,7 @@ const App = () => {
             Logo={Logo}
             path={path}
             activeTab={activeTab}
-            onActive={handleActiveTabs}
+            onActive={setActiveTab}
           />
         </nav>
       </header>

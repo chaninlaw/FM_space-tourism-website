@@ -27,10 +27,10 @@ const Destination = ({ data }) => {
 
   return (
     <Section title="destination">
-      <Container className="pt-28 md:pt-52">
+      <Container className="pt-28 md:pt-36">
         <Heading number="01">Pick your destination</Heading>
         <img
-          className="mx-auto my-8 w-44 md:w-80"
+          className="mx-auto my-8 w-44 md:my-14 md:w-80"
           src={picObj[display.name]}
           alt={display.name}
         />
@@ -44,20 +44,29 @@ const Destination = ({ data }) => {
         </div>
 
         <h3 className="my-4 text-[3.5rem] uppercase">{display.name}</h3>
-        <p className="tracking-[1px] text-accent">{display.description}</p>
-        <hr className="my-8 w-full border border-[#383B4B]" />
-
-        <div className="mb-4">
-          <p className="uppercase tracking-[2.35px] text-accent">
-            AVG. Distance
+        <div className="md:mx-auto md:max-w-xl">
+          <p className="leading-7 tracking-[1px] text-accent">
+            {display.description}
           </p>
-          <p className="font-belle text-[28px] uppercase">{display.distance}</p>
-        </div>
-        <div className="mb-14">
-          <p className="uppercase tracking-[2.35px] text-accent">
-            Est. Travel Time
-          </p>
-          <p className="font-belle text-[28px] uppercase">{display.travel}</p>
+          <hr className="my-8 w-full border border-[#383B4B]" />
+          <div className="md:flex md:justify-evenly">
+            <div className="mb-4">
+              <p className="uppercase tracking-[2.35px] text-accent">
+                AVG. Distance
+              </p>
+              <p className="font-belle text-[28px] uppercase">
+                {display.distance}
+              </p>
+            </div>
+            <div className="mb-14">
+              <p className="uppercase tracking-[2.35px] text-accent">
+                Est. Travel Time
+              </p>
+              <p className="font-belle text-[28px] uppercase">
+                {display.travel}
+              </p>
+            </div>
+          </div>
         </div>
       </Container>
     </Section>

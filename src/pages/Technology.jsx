@@ -28,7 +28,7 @@ const Technology = ({ data }) => {
 
   return (
     <Background title="technology">
-      <Container className="pt-28 md:pt-52">
+      <Container className="pt-28 md:mb-16 md:pt-36">
         <Heading number="03">Space Launch 101</Heading>
       </Container>
       <Carousel onDisplay={handleDisplay} index={activeIndex}>
@@ -47,13 +47,15 @@ const Technology = ({ data }) => {
             activeIndex={activeIndex}
           />
         </ul>
-        <div className="mb-4 mt-8">
+        <div className="mb-4 mt-8 md:mt-10">
           <h4 className="font-barlow text-base uppercase text-accent">
             The Terminology...
           </h4>
-          <h3 className="font-Belle m-2 text-2xl uppercase">{display.name}</h3>
+          <h3 className="font-Belle m-2 text-2xl uppercase md:my-6 md:text-[2.5rem]">
+            {display.name}
+          </h3>
         </div>
-        <p className="mb-14 tracking-[1px] text-accent">
+        <p className="mb-14 leading-7 tracking-[1px] text-accent md:mx-auto md:max-w-md">
           {display.description}
         </p>
       </Container>

@@ -7,8 +7,8 @@ const Tabs = ({ data, activeIndex, handleDisplay, page }) => {
           key={key}
           onClick={() => handleDisplay(index)}
           className={`${
-            isActive && 'border-b-[3px] border-b-white'
-          } cursor-pointer p-1`}
+            isActive && 'border-b-[3px] border-b-white text-white'
+          } cursor-pointer p-1 text-accent`}
         >
           {key.toUpperCase()}
         </p>
@@ -38,7 +38,7 @@ const Tabs = ({ data, activeIndex, handleDisplay, page }) => {
           <button
             className={`${
               isActive && `!bg-white text-black`
-            } h-10 w-10 rounded-full border border-gray-700 bg-transparent font-belle`}
+            } h-10 w-10 rounded-full border border-gray-700 bg-transparent font-belle md:h-16 md:w-16 md:text-2xl`}
             onClick={() => handleDisplay(index)}
           >
             {index + 1}

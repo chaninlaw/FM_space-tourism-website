@@ -27,35 +27,42 @@ const Crew = ({ data }) => {
 
   return (
     <Section title="crew">
-      <Container className="pt-28 md:pt-52">
+      <Container className="pt-28 md:pt-36">
         <Heading number="02">Meet the crew</Heading>
-        <div className="flex items-center justify-center">
-          <img
-            className="mt-8 w-80 md:w-[456px]"
-            src={picObj[display.name]}
-            alt="person image"
-          />
-        </div>
-        <hr className="bordser w-full border-[#383B4B]" />
-
-        <div className="my-8">
-          <ul className="flex items-center justify-center space-x-4">
-            <Tabs
-              page="crew"
-              data={data}
-              handleDisplay={handleDisplay}
-              activeIndex={activeIndex}
+        <div className="md:flex md:flex-col-reverse">
+          <div className="flex items-center justify-center">
+            <img
+              className="mt-8 w-80 md:mt-0 md:w-[456px]"
+              src={picObj[display.name]}
+              alt="person image"
             />
-          </ul>
-        </div>
+          </div>
+          <hr className="bordser w-full border-[#383B4B] md:hidden" />
 
-        <h4 className="font-Belle mb-1 text-base uppercase brightness-[50%]">
-          {display.role}
-        </h4>
+          <div className="my-8 md:mb-20 md:mt-6">
+            <ul className="flex items-center justify-center space-x-4">
+              <Tabs
+                page="crew"
+                data={data}
+                handleDisplay={handleDisplay}
+                activeIndex={activeIndex}
+              />
+            </ul>
+          </div>
+          <div className="md:mx-auto md:mt-16 md:max-w-xl">
+            <h4 className="font-Belle mb-1 text-base uppercase brightness-[50%] md:text-2xl">
+              {display.role}
+            </h4>
 
-        <div className="mb-20 space-y-4">
-          <h3 className="font-Belle text-2xl uppercase">{display.name}</h3>
-          <p className="text-base tracking-[1px] text-accent">{display.bio}</p>
+            <div className="mb-20 space-y-4 md:my-4">
+              <h3 className="font-Belle text-2xl uppercase md:text-[2.5rem]">
+                {display.name}
+              </h3>
+              <p className="text-base leading-7 tracking-[1px] text-accent">
+                {display.bio}
+              </p>
+            </div>
+          </div>
         </div>
       </Container>
     </Section>

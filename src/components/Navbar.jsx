@@ -78,9 +78,11 @@ const Navbar = ({ Logo, path, activeTab, onActive }) => {
             alt="hamburger-menu-icon"
             onClick={handleToggle}
           />
-          <ul className="hidden md:flex md:gap-8">{renderedListsDesktop}</ul>
+          <ul className="hidden md:flex md:justify-between md:gap-10">
+            {renderedListsDesktop}
+          </ul>
         </Container>
-        <div className="hidden md:absolute md:inset-y-0 md:left-1/3 md:right-0 md:-z-[5] md:block md:bg-[#151923]" />
+        <div className="hidden md:absolute md:inset-y-0 md:right-0 md:-z-[5] md:block md:w-2/3 md:max-w-screen-md md:bg-[#151923]" />
       </div>
       {/* Mobile Menu */}
       <div
