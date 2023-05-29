@@ -40,7 +40,7 @@ const Crew = ({ data }) => {
               effect="blur"
             />
           </div>
-          <hr className="bordser w-full border-[#383B4B] md:hidden" />
+          <hr className="w-full border border-[#383B4B] md:hidden" />
 
           <div className="my-8 md:mb-20 md:mt-6">
             <ul className="flex items-center justify-center space-x-4">
