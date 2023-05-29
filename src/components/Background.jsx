@@ -1,49 +1,60 @@
+import HomeMobileBg from "../assets/home/background-home-mobile.jpg";
+import HomeTabletBg from "../assets/home/background-home-tablet.jpg";
+import HomeDesktopBg from "../assets/home/background-home-desktop.jpg";
+import DestMobileBg from "../assets/destination/background-destination-mobile.jpg";
+import DestTabletBg from "../assets/destination/background-destination-tablet.jpg";
+import DestDesktopBg from "../assets/destination/background-destination-desktop.jpg";
+import CrewMobileBg from "../assets/crew/background-crew-mobile.jpg";
+import CrewTabletBg from "../assets/crew/background-crew-tablet.jpg";
+import CrewDesktopBg from "../assets/crew/background-crew-desktop.jpg";
+import TechMobileBg from "../assets/technology/background-technology-mobile.jpg";
+import TechTabletBg from "../assets/technology/background-technology-tablet.jpg";
+import TechDesktopBg from "../assets/technology/background-technology-desktop.jpg";
+
+const BgObj = {
+  home: {
+    mobileBg: HomeMobileBg,
+    tabletBg: HomeTabletBg,
+    desktopBg: HomeDesktopBg,
+  },
+  destination: {
+    mobileBg: DestMobileBg,
+    tabletBg: DestTabletBg,
+    desktopBg: DestDesktopBg,
+  },
+  crew: {
+    mobileBg: CrewMobileBg,
+    tabletBg: CrewTabletBg,
+    desktopBg: CrewDesktopBg,
+  },
+  technology: {
+    mobileBg: TechMobileBg,
+    tabletBg: TechTabletBg,
+    desktopBg: TechDesktopBg,
+  },
+};
+
 const Background = ({ children, title }) => {
-  if (title === 'destination') {
-    return (
-      <section
-        className={`absolute inset-x-0 top-0 -z-10 min-h-screen w-screen bg-[url('/src/assets/destination/background-destination-mobile.jpg')] 
-      bg-cover bg-fixed bg-top 
-      md:bg-[url('/src/assets/destination/background-destination-tablet.jpg')] 
-      lg:bg-[url('/src/assets/destination/background-destination-desktop.jpg')]`}
-      >
-        {children}
-      </section>
-    );
-  } else if (title === 'crew') {
-    return (
-      <section
-        className={`absolute inset-x-0 top-0 -z-10 min-h-screen w-screen bg-[url('/src/assets/crew/background-crew-mobile.jpg')] 
-    bg-cover bg-fixed bg-top 
-    md:bg-[url('/src/assets/crew/background-crew-tablet.jpg')] 
-    lg:bg-[url('/src/assets/crew/background-crew-desktop.jpg')]`}
-      >
-        {children}
-      </section>
-    );
-  } else if (title === 'technology') {
-    return (
-      <section
-        className={`absolute inset-x-0 top-0 -z-10 min-h-screen w-screen bg-[url('/src/assets/technology/background-technology-mobile.jpg')] 
-      bg-cover bg-fixed bg-top 
-      md:bg-[url('/src/assets/technology/background-technology-tablet.jpg')] 
-      lg:bg-[url('/src/assets/technology/background-technology-desktop.jpg')]`}
-      >
-        {children}
-      </section>
-    );
-  } else {
-    return (
-      <section
-        className={`absolute inset-x-0 top-0 -z-10 min-h-screen w-screen bg-[url('/src/assets/home/background-home-mobile.jpg')] 
-      bg-cover bg-fixed bg-top 
-      md:bg-[url('/src/assets/home/background-home-tablet.jpg')] 
-      lg:bg-[url('/src/assets/home/background-home-desktop.jpg')]`}
-      >
-        {children}
-      </section>
-    );
-  }
+  const currPage = BgObj[title];
+
+  return (
+    <section
+      style={{
+        "--image-mobile": `url(${currPage.mobileBg})`,
+        "--image-tablet": `url(${currPage.tabletBg})`,
+        "--image-desktop": `url(${currPage.desktopBg})`,
+      }}
+      className={`
+      absolute inset-x-0 top-0 -z-10 min-h-screen w-screen
+      bg-black bg-[image:var(--image-mobile)] bg-cover
+      bg-fixed bg-top bg-blend-screen
+      md:bg-[image:var(--image-tablet)]
+      lg:bg-[image:var(--image-desktop)]
+      `}
+    >
+      {children}
+    </section>
+  );
 };
 
 export default Background;

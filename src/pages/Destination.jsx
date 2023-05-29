@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import Section from '../components/Background';
-import Container from '../components/Container';
-import Heading from '../components/Heading';
-import Tabs from '../components/Tabs';
+import { useState } from "react";
+import Section from "../components/Background";
+import Container from "../components/Container";
+import Heading from "../components/Heading";
+import Tabs from "../components/Tabs";
 
-import Moon from '../assets/destination/image-moon.png';
-import Mars from '../assets/destination/image-mars.png';
-import Europa from '../assets/destination/image-europa.png';
-import Titan from '../assets/destination/image-titan.png';
+import Moon from "../assets/destination/image-moon.png";
+import Mars from "../assets/destination/image-mars.png";
+import Europa from "../assets/destination/image-europa.png";
+import Titan from "../assets/destination/image-titan.png";
 
 const picObj = {
   Moon,
@@ -30,6 +30,7 @@ const Destination = ({ data }) => {
       <Container className="pt-28 md:pt-36">
         <Heading number="01">Pick your destination</Heading>
         <img
+          loading="lazy"
           className="mx-auto my-8 w-44 md:my-14 md:w-80"
           src={picObj[display.name]}
           alt={display.name}

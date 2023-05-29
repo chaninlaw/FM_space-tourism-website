@@ -76,7 +76,7 @@ const Navbar = ({ Logo, path, activeTab, onActive }) => {
             width="24"
             height="21"
             alt="hamburger-menu-icon"
-            onClick={handleToggle}
+            onClick={() => setToggle(true)}
           />
           <ul className="hidden md:flex md:justify-between md:gap-10">
             {renderedListsDesktop}
@@ -95,7 +95,7 @@ const Navbar = ({ Logo, path, activeTab, onActive }) => {
       >
         <img
           className=" absolute right-0 top-0 cursor-pointer p-9"
-          onClick={handleToggle}
+          onClick={() => setToggle(false)}
           src={CloseIcon}
           alt="close-menu-icon"
         />

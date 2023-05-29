@@ -8,7 +8,7 @@ const Carousel = ({ children, onDisplay, index }) => {
         data-carousel-prev
         onClick={() => onDisplay(index - 1)}
       >
-        <span className="hidden">Previous</span>
+        <span className="sr-only">Previous</span>
       </button>
       <button
         type="button"
@@ -16,7 +16,7 @@ const Carousel = ({ children, onDisplay, index }) => {
         data-carousel-next
         onClick={() => onDisplay(index + 1)}
       >
-        <span className="hidden">Next</span>
+        <span className="sr-only">Next</span>
       </button>
     </div>
   );
