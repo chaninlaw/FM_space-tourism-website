@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Logo from "./assets/shared/logo.svg";
 import { path } from "./data";
 import { destinations, crew, technology } from "./data/data.json";
-import Skeleton from "./components/Skeleton";
+import { Grid } from "react-loader-spinner";
 
 const HomeLazy = lazy(() => import("./pages/Home"));
 const DestinationLazy = lazy(() => import("./pages/Destination"));
@@ -25,7 +25,6 @@ const App = () => {
       setActiveTab(currPage);
     }
   }, [location]);
-
   return (
     <>
       <header>
@@ -39,7 +38,7 @@ const App = () => {
         </nav>
       </header>
       <main>
-        <Suspense fallback={<Skeleton time={10} />}>
+        <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="/" element={<HomeLazy />} />
             <Route
@@ -59,3 +58,20 @@ const App = () => {
 };
 
 export default App;
+
+function Loading() {
+  return (
+    <div className="absolute inset-0 z-20 flex h-screen items-center justify-center bg-[#0c0e17]">
+      <Grid
+        height="80"
+        width="80"
+        color="#fff"
+        ariaLabel="grid-loading"
+        radius="12.5"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+      />
+    </div>
+  );
+}

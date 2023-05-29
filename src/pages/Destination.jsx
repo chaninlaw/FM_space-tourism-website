@@ -1,5 +1,7 @@
 import { useState } from "react";
-import Section from "../components/Background";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import Background from "../components/Background";
 import Container from "../components/Container";
 import Heading from "../components/Heading";
 import Tabs from "../components/Tabs";
@@ -26,14 +28,14 @@ const Destination = ({ data }) => {
   };
 
   return (
-    <Section title="destination">
+    <Background title="destination">
       <Container className="pt-28 md:pt-36">
         <Heading number="01">Pick your destination</Heading>
-        <img
-          loading="lazy"
+        <LazyLoadImage
           className="mx-auto my-8 w-44 md:my-14 md:w-80"
           src={picObj[display.name]}
           alt={display.name}
+          effect="blur"
         />
         <div className="mt-4 box-content flex items-center justify-center space-x-4 uppercase tracking-[2.7px]">
           <Tabs
@@ -70,7 +72,7 @@ const Destination = ({ data }) => {
           </div>
         </div>
       </Container>
-    </Section>
+    </Background>
   );
 };
 

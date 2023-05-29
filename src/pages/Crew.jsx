@@ -1,19 +1,21 @@
-import { useState } from 'react';
-import Section from '../components/Background';
-import Container from '../components/Container';
-import Heading from '../components/Heading';
-import Tabs from '../components/Tabs';
+import { useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import Background from "../components/Background";
+import Container from "../components/Container";
+import Heading from "../components/Heading";
+import Tabs from "../components/Tabs";
 
-import DouglasHurley from '../assets/crew/image-douglas-hurley.png';
-import MarkShuttleworth from '../assets/crew/image-mark-shuttleworth.png';
-import VictorGlover from '../assets/crew/image-victor-glover.png';
-import AnoushehAnsari from '../assets/crew/image-anousheh-ansari.png';
+import DouglasHurley from "../assets/crew/image-douglas-hurley.png";
+import MarkShuttleworth from "../assets/crew/image-mark-shuttleworth.png";
+import VictorGlover from "../assets/crew/image-victor-glover.png";
+import AnoushehAnsari from "../assets/crew/image-anousheh-ansari.png";
 
 const picObj = {
-  'Douglas Hurley': DouglasHurley,
-  'Mark Shuttleworth': MarkShuttleworth,
-  'Victor Glover': VictorGlover,
-  'Anousheh Ansari': AnoushehAnsari,
+  "Douglas Hurley": DouglasHurley,
+  "Mark Shuttleworth": MarkShuttleworth,
+  "Victor Glover": VictorGlover,
+  "Anousheh Ansari": AnoushehAnsari,
 };
 
 const Crew = ({ data }) => {
@@ -26,15 +28,16 @@ const Crew = ({ data }) => {
   };
 
   return (
-    <Section title="crew">
+    <Background title="crew">
       <Container className="pt-28 md:pt-36">
         <Heading number="02">Meet the crew</Heading>
         <div className="md:flex md:flex-col-reverse">
           <div className="flex items-center justify-center">
-            <img
+            <LazyLoadImage
               className="mt-8 w-80 md:mt-0 md:w-[456px]"
               src={picObj[display.name]}
               alt="person image"
+              effect="blur"
             />
           </div>
           <hr className="bordser w-full border-[#383B4B] md:hidden" />
@@ -65,7 +68,7 @@ const Crew = ({ data }) => {
           </div>
         </div>
       </Container>
-    </Section>
+    </Background>
   );
 };
 

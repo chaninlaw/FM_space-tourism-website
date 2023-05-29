@@ -1,18 +1,20 @@
-import Background from '../components/Background';
-import Container from '../components/Container';
-import Heading from '../components/Heading';
-import Tabs from '../components/Tabs';
-import Carousel from '../components/Carousel';
+import { useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import Background from "../components/Background";
+import Container from "../components/Container";
+import Heading from "../components/Heading";
+import Tabs from "../components/Tabs";
+import Carousel from "../components/Carousel";
 
-import SpaceCraft from '../assets/technology/image-launch-vehicle-landscape.jpg';
-import SpaceCapsule from '../assets/technology/image-space-capsule-landscape.jpg';
-import SpacePort from '../assets/technology/image-spaceport-landscape.jpg';
-import { useState } from 'react';
+import SpaceCraft from "../assets/technology/image-launch-vehicle-landscape.jpg";
+import SpaceCapsule from "../assets/technology/image-space-capsule-landscape.jpg";
+import SpacePort from "../assets/technology/image-spaceport-landscape.jpg";
 
 const picObj = {
-  'Launch vehicle': SpaceCraft,
+  "Launch vehicle": SpaceCraft,
   Spaceport: SpacePort,
-  'Space capsule': SpaceCapsule,
+  "Space capsule": SpaceCapsule,
 };
 
 const Technology = ({ data }) => {
@@ -32,10 +34,11 @@ const Technology = ({ data }) => {
         <Heading number="03">Space Launch 101</Heading>
       </Container>
       <Carousel onDisplay={handleDisplay} index={activeIndex}>
-        <img
+        <LazyLoadImage
           className="relative inset-0 h-44 w-screen md:h-80"
           src={picObj[display.name]}
           alt="tech image"
+          effect="blur"
         />
       </Carousel>
       <Container className="!pt-0">

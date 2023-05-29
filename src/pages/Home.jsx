@@ -1,10 +1,10 @@
-import Section from '../components/Background';
-import Container from '../components/Container';
-import Button from '../components/Button';
+import Background from "../components/Background";
+import Container from "../components/Container";
+import Button from "../components/Button";
 
 const Home = () => {
   return (
-    <Section title="home" className="mask-image">
+    <Background title="home" className="mask-image">
       <Container className="pt-28 md:pt-52">
         <div className="md:mx-auto md:max-w-md">
           <p className="text-base uppercase tracking-[0.18rem] text-accent">
@@ -29,7 +29,7 @@ const Home = () => {
           </Button>
         </div>
       </Container>
-    </Section>
+    </Background>
   );
 };
 export default Home;

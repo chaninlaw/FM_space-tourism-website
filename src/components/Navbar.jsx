@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
-import Container from './Container';
-import { Link } from 'react-router-dom';
+import { useState, useEffect, useRef } from "react";
+import Container from "./Container";
+import { Link } from "react-router-dom";
 
-import Hamburger from '../assets/shared/icon-hamburger.svg';
-import CloseIcon from '../assets/shared/icon-close.svg';
+import Hamburger from "../assets/shared/icon-hamburger.svg";
+import CloseIcon from "../assets/shared/icon-close.svg";
 
 const Navbar = ({ Logo, path, activeTab, onActive }) => {
   const [toggle, setToggle] = useState(false);
@@ -19,10 +19,10 @@ const Navbar = ({ Logo, path, activeTab, onActive }) => {
       }
     };
 
-    document.addEventListener('click', handler, true);
+    document.addEventListener("click", handler, true);
 
     return () => {
-      document.removeEventListener('click', handler);
+      document.removeEventListener("click", handler);
     };
   }, []);
 
