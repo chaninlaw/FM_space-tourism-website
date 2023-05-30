@@ -30,7 +30,7 @@ const Navbar = ({ Logo, path, activeTab, onActive }) => {
     setToggle(!toggle);
   };
 
-  const renderedListsDesktop = path.map(({ title, link }) => (
+  const renderedListsDesktop = path.map(({ title, link }, index) => (
     <div key={title} className="relative">
       <li>
         <Link
@@ -38,6 +38,7 @@ const Navbar = ({ Logo, path, activeTab, onActive }) => {
           onClick={() => onActive(title)}
           className="text-lg uppercase tracking-[2.36px]"
         >
+          <span className="hidden font-bold xl:inline">0{index} </span>
           {title}
         </Link>
       </li>
@@ -64,7 +65,7 @@ const Navbar = ({ Logo, path, activeTab, onActive }) => {
   return (
     <>
       {/* Desktop Menu */}
-      <div className="md:relative">
+      <div className="md:relative xl:mt-14">
         <Container className="flex items-center justify-between py-6">
           <Link to="/">
             <img src={Logo} width="48" alt="Logo" />
@@ -78,11 +79,13 @@ const Navbar = ({ Logo, path, activeTab, onActive }) => {
             alt="hamburger-menu-icon"
             onClick={() => setToggle(true)}
           />
-          <ul className="hidden md:flex md:justify-between md:gap-10">
+          <ul className="hidden md:flex md:justify-between md:gap-10 xl:mr-20">
             {renderedListsDesktop}
           </ul>
         </Container>
-        <div className="hidden md:absolute md:inset-y-0 md:right-0 md:-z-[5] md:block md:w-2/3 md:max-w-screen-md md:bg-[#151923]" />
+        {/* Background on Desktop Menu */}
+        <div className="hidden md:absolute md:inset-y-0 md:right-0 md:-z-[5] md:block md:w-2/3 md:max-w-screen-xl md:bg-white md:bg-opacity-5 md:filter md:backdrop-blur-xl md:backdrop-opacity-95 lg:w-[52%]" />
+        <hr className="hidden xl:absolute xl:left-[11.5%] xl:top-1/2 xl:block xl:w-[39%] xl:max-w-7xl xl:border xl:border-[#383B4B]" />
       </div>
       {/* Mobile Menu */}
       <div

@@ -35,7 +35,7 @@ const Technology = ({ data }) => {
       </Container>
       <Carousel onDisplay={handleDisplay} index={activeIndex}>
         <LazyLoadImage
-          className="relative inset-0 h-44 w-screen md:h-80"
+          className="relative inset-0 aspect-square h-44 w-screen md:h-80 lg:h-96"
           src={picObj[display.name]}
           alt="tech image"
           effect="blur"

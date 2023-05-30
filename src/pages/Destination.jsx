@@ -29,45 +29,56 @@ const Destination = ({ data }) => {
 
   return (
     <Background title="destination">
-      <Container className="pt-28 md:pt-36">
+      <Container className="pt-28 md:pt-36 xl:mt-24 xl:w-[77%]">
         <Heading number="01">Pick your destination</Heading>
-        <LazyLoadImage
-          className="mx-auto my-8 w-44 md:my-14 md:w-80"
-          src={picObj[display.name]}
-          alt={display.name}
-          effect="blur"
-        />
-        <div className="mt-4 box-content flex items-center justify-center space-x-4 uppercase tracking-[2.7px]">
-          <Tabs
-            page="destinations"
-            data={picObj}
-            activeIndex={activeIndex}
-            handleDisplay={handleDisplay}
-          />
-        </div>
+        <div className="xl:grid xl:grid-cols-11">
+          <div className="xl:col-start-1 xl:col-end-8">
+            <LazyLoadImage
+              className="mx-auto my-8 w-44 md:my-14 md:w-80 xl:w-[445px]"
+              src={picObj[display.name]}
+              alt={display.name}
+              effect="blur"
+            />
+          </div>
 
-        <h3 className="my-4 text-[3.5rem] uppercase">{display.name}</h3>
-        <div className="md:mx-auto md:max-w-xl">
-          <p className="leading-7 tracking-[1px] text-accent">
-            {display.description}
-          </p>
-          <hr className="my-8 w-full border border-[#383B4B]" />
-          <div className="md:flex md:justify-evenly">
-            <div className="mb-4">
-              <p className="uppercase tracking-[2.35px] text-accent">
-                AVG. Distance
-              </p>
-              <p className="font-belle text-[28px] uppercase">
-                {display.distance}
-              </p>
+          <div className="xl:col-start-8 xl:col-end-12 xl:space-y-10">
+            <div className="mt-4 box-content flex items-center justify-center space-x-4 uppercase tracking-[2.7px] xl:justify-start">
+              <Tabs
+                page="destinations"
+                data={picObj}
+                activeIndex={activeIndex}
+                handleDisplay={handleDisplay}
+              />
             </div>
-            <div className="mb-14">
-              <p className="uppercase tracking-[2.35px] text-accent">
-                Est. Travel Time
+
+            <h3 className="my-4 text-[3.5rem] uppercase xl:text-start xl:text-8xl">
+              {display.name}
+            </h3>
+
+            <div className="md:mx-auto md:max-w-xl">
+              <p className="leading-7 tracking-[1px] text-accent xl:text-left">
+                {display.description}
               </p>
-              <p className="font-belle text-[28px] uppercase">
-                {display.travel}
-              </p>
+              <hr className="my-8 w-full border border-[#383B4B] xl:mb-6 xl:mt-12" />
+
+              <div className="md:flex md:justify-evenly xl:justify-start xl:gap-20 xl:text-left">
+                <div className="mb-4 xl:space-y-1">
+                  <p className="uppercase tracking-[2.35px] text-accent">
+                    AVG. Distance
+                  </p>
+                  <p className="font-belle text-[28px] uppercase">
+                    {display.distance}
+                  </p>
+                </div>
+                <div className="mb-14 xl:space-y-1">
+                  <p className="uppercase tracking-[2.35px] text-accent">
+                    Est. Travel Time
+                  </p>
+                  <p className="font-belle text-[28px] uppercase">
+                    {display.travel}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
