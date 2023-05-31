@@ -37,3 +37,9 @@
     @apply font-belle;
   }
 }
+
+@layer utilities {
+  .nowrap {
+    white-space: nowrap;
+  }
+}

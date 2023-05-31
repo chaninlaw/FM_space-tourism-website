@@ -31,23 +31,19 @@ const Navbar = ({ Logo, path, activeTab, onActive }) => {
   };
 
   const renderedListsDesktop = path.map(({ title, link }, index) => (
-    <div key={title} className="relative">
-      <li>
-        <Link
-          to={link}
-          onClick={() => onActive(title)}
-          className="text-lg uppercase tracking-[2.36px]"
-        >
-          <span className="hidden font-bold xl:inline">0{index} </span>
-          {title}
-        </Link>
-      </li>
-      <div
-        className={`absolute -bottom-8 w-full ${
-          title === activeTab ? `border-b-[3px] border-white` : null
+    <li key={title}>
+      <Link
+        to={link}
+        onClick={() => onActive(title)}
+        className={`relative py-[34px] text-lg uppercase tracking-[2.36px] transition-all hover:border-b-[3px] hover:border-white hover:border-opacity-50 ${
+          title === activeTab &&
+          "after:absolute after:-inset-[3px] after:border-b-[3px] after:border-white"
         }`}
-      />
-    </div>
+      >
+        <span className="hidden font-bold xl:inline">0{index} </span>
+        {title}
+      </Link>
+    </li>
   ));
 
   const renderedListsMobile = path.map(({ title, link }, index) => (
@@ -79,12 +75,10 @@ const Navbar = ({ Logo, path, activeTab, onActive }) => {
             alt="hamburger-menu-icon"
             onClick={() => setToggle(true)}
           />
-          <ul className="hidden md:flex md:justify-between md:gap-10 xl:mr-20">
+          <ul className="hidden md:flex md:h-24 md:w-2/3 md:max-w-screen-xl md:flex-nowrap md:items-center md:justify-end md:gap-6 md:bg-white md:bg-opacity-5 md:pr-10 md:filter md:backdrop-blur-xl md:backdrop-opacity-95 lg:w-[52%] xl:pr-20">
             {renderedListsDesktop}
           </ul>
         </Container>
-        {/* Background on Desktop Menu */}
-        <div className="hidden md:absolute md:inset-y-0 md:right-0 md:-z-[5] md:block md:w-2/3 md:max-w-screen-xl md:bg-white md:bg-opacity-5 md:filter md:backdrop-blur-xl md:backdrop-opacity-95 lg:w-[52%]" />
         <hr className="hidden xl:absolute xl:left-[11.5%] xl:top-1/2 xl:block xl:w-[39%] xl:max-w-7xl xl:border xl:border-[#383B4B]" />
       </div>
       {/* Mobile Menu */}

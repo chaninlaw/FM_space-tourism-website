@@ -29,21 +29,21 @@ const Crew = ({ data }) => {
 
   return (
     <Background title="crew">
-      <Container className="pt-28 md:pt-36">
+      <Container className="pt-28 md:pt-36 xl:mt-24 xl:w-[77%]">
         <Heading number="02">Meet the crew</Heading>
-        <div className="md:flex md:flex-col-reverse">
-          <div className="flex items-center justify-center">
+        <div className="md:flex md:flex-col-reverse xl:grid xl:grid-cols-12 xl:grid-rows-1">
+          <div className="flex items-center justify-center xl:col-start-7 xl:col-end-13 xl:row-start-1 xl:row-end-3 xl:justify-end">
             <LazyLoadImage
-              className="mt-8 w-80 md:mt-0 md:w-[456px]"
+              className="mt-8 w-80 md:mt-0 md:w-[456px] xl:h-[629px] xl:w-auto"
               src={picObj[display.name]}
               alt="person image"
               effect="blur"
             />
           </div>
-          <hr className="w-full border border-[#383B4B] md:hidden" />
+          <hr className="w-full border border-gray-600 md:hidden" />
 
-          <div className="my-8 md:mb-20 md:mt-6">
-            <ul className="flex items-center justify-center space-x-4">
+          <div className="my-8 md:mb-20 md:mt-6 xl:col-start-1 xl:col-end-7 xl:row-start-2 xl:row-end-3 xl:self-end">
+            <ul className="flex items-center justify-center space-x-4 xl:justify-start">
               <Tabs
                 page="crew"
                 data={data}
@@ -52,16 +52,16 @@ const Crew = ({ data }) => {
               />
             </ul>
           </div>
-          <div className="md:mx-auto md:mt-16 md:max-w-xl">
-            <h4 className="font-Belle mb-1 text-base uppercase brightness-[50%] md:text-2xl">
+          <div className="md:mx-auto md:mt-16 md:max-w-xl xl:col-start-1 xl:col-end-7 xl:row-start-1 xl:row-end-2 xl:mx-0 xl:mt-32 xl:text-left">
+            <h4 className="font-Belle mb-1 text-base uppercase brightness-[50%] md:text-2xl xl:text-4xl">
               {display.role}
             </h4>
 
             <div className="mb-20 space-y-4 md:my-4">
-              <h3 className="font-Belle text-2xl uppercase md:text-[2.5rem]">
+              <h3 className="nowrap font-belle text-2xl uppercase md:text-[2.5rem] xl:text-6xl">
                 {display.name}
               </h3>
-              <p className="text-base leading-7 tracking-[1px] text-accent">
+              <p className="text-base leading-7 tracking-[1px] text-accent xl:text-xl">
                 {display.bio}
               </p>
             </div>

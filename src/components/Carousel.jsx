@@ -1,6 +1,6 @@
-const Carousel = ({ children, onDisplay, index }) => {
+const Carousel = ({ children, onDisplay, index, ...rest }) => {
   return (
-    <div className="relative my-8">
+    <div className={`${rest.className} relative my-8`}>
       {children}
       <button
         type="button"
