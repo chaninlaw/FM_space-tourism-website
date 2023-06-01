@@ -1,11 +1,10 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
-// import { Home, Destination, Crew, Technology } from "./pages";
 import Logo from "./assets/shared/logo.svg";
 import { path } from "./data";
 import { destinations, crew, technology } from "./data/data.json";
-import { Grid } from "react-loader-spinner";
+import Loading from "./components/Loading";
 
 const HomeLazy = lazy(() => import("./pages/Home"));
 const DestinationLazy = lazy(() => import("./pages/Destination"));
@@ -58,20 +57,3 @@ const App = () => {
 };
 
 export default App;
-
-function Loading() {
-  return (
-    <div className="absolute inset-0 z-20 flex h-screen items-center justify-center bg-[#0c0e17]">
-      <Grid
-        height="80"
-        width="80"
-        color="#fff"
-        ariaLabel="grid-loading"
-        radius="12.5"
-        wrapperStyle={{}}
-        wrapperClass=""
-        visible={true}
-      />
-    </div>
-  );
-}

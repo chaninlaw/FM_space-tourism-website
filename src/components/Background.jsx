@@ -45,16 +45,10 @@ const Background = ({ children, title }) => {
           "--image-tablet": `url(${currPage.tabletBg})`,
           "--image-desktop": `url(${currPage.desktopBg})`,
         }}
-        className={`
-      absolute inset-x-0 top-0 isolate -z-10 min-h-screen w-screen
-     bg-black bg-opacity-0 bg-cover bg-fixed bg-top bg-blend-screen 
-      after:absolute after:inset-0 after:-z-[11] after:bg-black
-      after:bg-[image:var(--image-mobile)]
-      after:bg-cover after:opacity-100
-      after:transition-opacity
-      after:md:bg-[image:var(--image-tablet)]
-      after:lg:bg-[image:var(--image-desktop)]
-  `}
+        className={`absolute inset-x-0 top-0 isolate -z-10 min-h-screen w-screen
+      bg-[#0c0e17] bg-[image:var(--image-mobile)] bg-cover bg-fixed bg-top 
+        md:bg-[image:var(--image-tablet)] lg:bg-[image:var(--image-desktop)]
+        `}
       >
         {children}
       </div>
