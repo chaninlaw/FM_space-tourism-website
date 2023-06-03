@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
+import { motion } from "framer-motion";
 import Background from "../components/Background";
 import Container from "../components/Container";
 import Heading from "../components/Heading";
@@ -51,15 +50,21 @@ const Technology = ({ data }) => {
           onDisplay={handleDisplay}
           index={activeIndex}
         >
-          <LazyLoadImage
+          <motion.img
             className="relative inset-0 aspect-square h-44 w-screen md:h-80 lg:h-96 xl:h-full xl:w-full"
+            key={
+              width >= 1280
+                ? picObj[display.name].portrait
+                : picObj[display.name].landscape
+            }
             src={
               width >= 1280
                 ? picObj[display.name].portrait
                 : picObj[display.name].landscape
             }
             alt={display.name}
-            effect="blur"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
           />
         </Carousel>
         <Container className="xl:col-start-2 xl:col-end-9 xl:row-start-1 xl:grid xl:grid-cols-4 xl:place-content-center xl:gap-5">

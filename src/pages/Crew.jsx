@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
+import { motion } from "framer-motion";
 import Background from "../components/Background";
 import Container from "../components/Container";
 import Heading from "../components/Heading";
@@ -33,11 +32,13 @@ const Crew = ({ data }) => {
         <Heading number="02">Meet the crew</Heading>
         <div className="md:flex md:flex-col-reverse xl:grid xl:grid-cols-12 xl:grid-rows-1">
           <div className="flex items-center justify-center xl:col-start-7 xl:col-end-13 xl:row-start-1 xl:row-end-3 xl:justify-end">
-            <LazyLoadImage
+            <motion.img
               className="mt-8 w-80 md:mt-0 md:w-[456px] xl:h-[629px] xl:w-auto"
+              key={picObj[display.name]}
               src={picObj[display.name]}
-              alt="person image"
-              effect="blur"
+              alt={display.name}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
             />
           </div>
           <hr className="w-full border border-gray-600 md:hidden" />

@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
+import { motion } from "framer-motion";
 import Background from "../components/Background";
 import Container from "../components/Container";
 import Heading from "../components/Heading";
@@ -33,11 +32,13 @@ const Destination = ({ data }) => {
         <Heading number="01">Pick your destination</Heading>
         <div className="xl:grid xl:grid-cols-11">
           <div className="xl:col-start-1 xl:col-end-8">
-            <LazyLoadImage
+            <motion.img
+              key={picObj[display.name]}
               className="mx-auto my-8 w-44 md:my-14 md:w-80 xl:w-[445px]"
               src={picObj[display.name]}
               alt={display.name}
-              effect="blur"
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0 }}
             />
           </div>
 
